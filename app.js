@@ -2,8 +2,30 @@ const salir = document.getElementById("salir");
 const bgMusic = document.getElementById("bgMusic");
 const welcome = document.getElementById("welcome");
 const startBtn = document.getElementById("startBtn");
+const welcometitle = document.getElementById("welcome-title");
 
 let contador = 0;
+
+if (welcometitle) {
+    const mensajes = [
+        welcometitle.textContent,
+        "El tiempo corre, no te quedes atrás...",
+        "Este es tu segundo intento",
+        "Las segundas oportunidades también pesan",
+        "Aquí estoy, frente a los restos de lo que olvidé",
+        "Cada página que repaso es un fantasma que regresa",
+        "El refuerzo es la cicatriz de mis errores"
+    ];
+    let index = 0;
+    setInterval(() => {
+        index = Math.floor(Math.random() * mensajes.length); // aleatorio
+        welcometitle.textContent = mensajes[index];
+        welcometitle.classList.add("glitch-strong");
+        setTimeout(() => {
+            welcometitle.classList.remove("glitch-strong");
+        }, 500); // dura medio segundo el glitch fuerte
+    }, 2000);
+}
 
 if (startBtn) {
     startBtn.addEventListener("click", () => {
@@ -13,6 +35,7 @@ if (startBtn) {
         bgMusic.volume = 0.2; // volumen más bajo
     });
 }
+
 
 if (salir) {
     salir.addEventListener("click", (event) => {

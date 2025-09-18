@@ -57,6 +57,78 @@ body {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
+/*names students and glitch*/
+/* Contenedor absoluto para los nombres */
+#names-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; /* que no molesten al usuario */
+}
+
+/* Estilo base de los nombres */
+.name {
+    position: absolute;
+    font-size: 1.2rem;
+    color: #5c5c5c;
+    font-family: 'Courier New', monospace;
+    opacity: 0;
+    white-space: nowrap;
+    animation: fadeInOut 4s linear forwards;
+}
+
+/* Animación glitch */
+.name::before,
+.name::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+}
+
+.name::before {
+    animation: glitchTop 0.5s infinite linear alternate-reverse;
+    color: var(--primary-color);
+    clip-path: inset(0 0 50% 0);
+}
+
+.name::after {
+    animation: glitchBottom 0.5s infinite linear alternate-reverse;
+    color: var(--hover-color);
+    clip-path: inset(50% 0 0 0);
+}
+
+/* Aparición/desaparición */
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: scale(0.8); }
+    20% { opacity: 1; transform: scale(1); }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: scale(1.2); }
+}
+
+/* Glitch superior */
+@keyframes glitchTop {
+    0% { transform: translate(0,0); }
+    20% { transform: translate(-2px,-2px); }
+    40% { transform: translate(-5px,2px); }
+    60% { transform: translate(2px,-1px); }
+    80% { transform: translate(-1px,2px); }
+    100% { transform: translate(0,0); }
+}
+
+/* Glitch inferior */
+@keyframes glitchBottom {
+    0% { transform: translate(0,0); }
+    20% { transform: translate(2px,2px); }
+    40% { transform: translate(5px,-2px); }
+    60% { transform: translate(-2px,1px); }
+    80% { transform: translate(1px,-2px); }
+    100% { transform: translate(0,0); }
+}
+/*finish names students and glitch*/
+
 /* Contenedor */
 .container {
     border: 1px solid var(--primary-color);
@@ -142,9 +214,6 @@ p {
     p { font-size: 1.3rem; }
     a { font-size: 1.3rem; }
 }
-
-
-
 /* Pantallas grandes */
 @media (min-width: 1024px) {
     h1 { font-size: 2rem; }
