@@ -15,6 +15,7 @@ html, body {
 
 body {
     background-color: var(--background-color);
+    animation: flicker 6s infinite;
     color: var(--text-color);
     font-family: 'Merriweather', serif;
     text-align: center;
@@ -22,6 +23,15 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 15px;
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        background-color: var(--background-color);
+    }
+    20%, 24%, 55% {
+        background-color: #000;
+    }
 }
 
 /* Pantalla de bienvenida */
@@ -56,6 +66,78 @@ body {
     color: #fff;
     transition: background 0.3s ease, color 0.3s ease;
 }
+
+.welcome::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0,0,0,0.3) 20%, transparent 70%);
+    animation: shadowsMove 20s infinite linear;
+    z-index: -1;
+}
+
+.dust {
+    position: absolute;
+    bottom: -10px;              /* salen un poquito más abajo */
+    width: 4px;
+    height: 4px;
+    background: #ccc;
+    opacity: 0.3;
+    border-radius: 50%;
+    animation: floatDust linear infinite;
+}
+
+@keyframes floatDust {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-110vh) scale(1.2); /* se van hasta arriba y un poco más */
+        opacity: 0; /* desaparecen */
+    }
+}
+
+.typewriter {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: var(--primary-color);
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid var(--primary-color);
+    animation: blinkCursor 0.7s steps(1) infinite;
+    display: inline-block;
+}
+
+@keyframes blinkCursor {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.glitch-char {
+    display: inline-block;
+    animation: glitchChar 0.2s infinite alternate;
+}
+
+@keyframes glitchChar {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-1px, 1px) rotate(-2deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(1px, -1px) rotate(2deg);
+        opacity: 0.6;
+    }
+}
+
 
 /*names students and glitch*/
 /* Contenedor absoluto para los nombres */
@@ -184,6 +266,32 @@ p {
     font-size: 1rem;   /* tamaño base PC */
     line-height: 1.5;
 }
+
+.exit-warning {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2em;
+  color: var(--hover-color);
+  background: var(--background-color);
+  padding: 1em 2em;
+  border: 2px solid var(--primary-color);
+  text-shadow: 0 0 10px var(--hover-color), 0 0 20px var(--primary-color);
+  z-index: 9999;
+  animation: glitch-exit 0.15s infinite;
+}
+
+@keyframes glitch-exit {
+  0% { transform: translate(-50%, -50%) skew(0deg); }
+  20% { transform: translate(-48%, -52%) skew(2deg); }
+  40% { transform: translate(-52%, -48%) skew(-2deg); }
+  60% { transform: translate(-50%, -50%) skew(1deg); }
+  80% { transform: translate(-51%, -49%) skew(-1deg); }
+  100% { transform: translate(-50%, -50%) skew(0deg); }
+}
+
+
 
 .flexbox-container {
     display: flex;

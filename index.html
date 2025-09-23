@@ -18,9 +18,10 @@
 
     <div>
         <div id="welcome" class="welcome">
-            <h1>Bienvenido al rincón de la recuperación</h1>
+            <h1 id="welcome-title" class="typewriter">Bienvenido al Refuerzo</h1>
             <p>Pulsa para continuar...</p>
             <button id="startBtn">Entrar</button>
+            <div id="names-container"></div>
         </div>
 
         <header>
@@ -39,6 +40,39 @@
         </main>
     </div>
 
+    <script>
+        const nombres = [
+            "Andrés", "Camila", "Valentina", "Juan", "Mateo",
+            "Laura", "Santiago", "Mariana", "Daniel", "Sara"
+        ];
+
+        function mostrarNombre() {
+            const container = document.getElementById("names-container");
+
+            // Elegir nombre aleatorio
+            const nombre = nombres[Math.floor(Math.random() * nombres.length)];
+
+            // Crear elemento
+            const span = document.createElement("span");
+            span.className = "name";
+            span.textContent = nombre;
+            span.setAttribute("data-text", nombre);
+
+            // Posición aleatoria en la pantalla
+            span.style.top = Math.random() * 80 + "%";
+            span.style.left = Math.random() * 80 + "%";
+
+            container.appendChild(span);
+
+            // Eliminar después de la animación
+            setTimeout(() => {
+                span.remove();
+            }, 4000); // igual que la duración de fadeInOut
+        }
+
+        // Mostrar nombres en intervalos
+        setInterval(mostrarNombre, 1000);
+    </script>
     <script src="app.js"></script>
 </body>
 
