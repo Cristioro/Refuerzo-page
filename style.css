@@ -6,7 +6,8 @@
     --container-bg: rgba(20, 20, 20, 0.9);
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -26,10 +27,21 @@ body {
 }
 
 @keyframes flicker {
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
         background-color: var(--background-color);
     }
-    20%, 24%, 55% {
+
+    20%,
+    24%,
+    55% {
         background-color: #000;
     }
 }
@@ -74,14 +86,15 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(0,0,0,0.3) 20%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.3) 20%, transparent 70%);
     animation: shadowsMove 20s infinite linear;
     z-index: -1;
 }
 
 .dust {
     position: absolute;
-    bottom: -10px;              /* salen un poquito más abajo */
+    bottom: -10px;
+    /* salen un poquito más abajo */
     width: 4px;
     height: 4px;
     background: #ccc;
@@ -95,9 +108,12 @@ body {
         transform: translateY(0) scale(0.5);
         opacity: 0.5;
     }
+
     100% {
-        transform: translateY(-110vh) scale(1.2); /* se van hasta arriba y un poco más */
-        opacity: 0; /* desaparecen */
+        transform: translateY(-110vh) scale(1.2);
+        /* se van hasta arriba y un poco más */
+        opacity: 0;
+        /* desaparecen */
     }
 }
 
@@ -128,10 +144,12 @@ body {
         transform: translate(0, 0);
         opacity: 1;
     }
+
     50% {
         transform: translate(-1px, 1px) rotate(-2deg);
         opacity: 0.8;
     }
+
     100% {
         transform: translate(1px, -1px) rotate(2deg);
         opacity: 0.6;
@@ -148,7 +166,8 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    pointer-events: none; /* que no molesten al usuario */
+    pointer-events: none;
+    /* que no molesten al usuario */
 }
 
 /* Estilo base de los nombres */
@@ -184,31 +203,80 @@ body {
 
 /* Aparición/desaparición */
 @keyframes fadeInOut {
-    0% { opacity: 0; transform: scale(0.8); }
-    20% { opacity: 1; transform: scale(1); }
-    80% { opacity: 1; }
-    100% { opacity: 0; transform: scale(1.2); }
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    20% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
 }
 
 /* Glitch superior */
 @keyframes glitchTop {
-    0% { transform: translate(0,0); }
-    20% { transform: translate(-2px,-2px); }
-    40% { transform: translate(-5px,2px); }
-    60% { transform: translate(2px,-1px); }
-    80% { transform: translate(-1px,2px); }
-    100% { transform: translate(0,0); }
+    0% {
+        transform: translate(0, 0);
+    }
+
+    20% {
+        transform: translate(-2px, -2px);
+    }
+
+    40% {
+        transform: translate(-5px, 2px);
+    }
+
+    60% {
+        transform: translate(2px, -1px);
+    }
+
+    80% {
+        transform: translate(-1px, 2px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
 }
 
 /* Glitch inferior */
 @keyframes glitchBottom {
-    0% { transform: translate(0,0); }
-    20% { transform: translate(2px,2px); }
-    40% { transform: translate(5px,-2px); }
-    60% { transform: translate(-2px,1px); }
-    80% { transform: translate(1px,-2px); }
-    100% { transform: translate(0,0); }
+    0% {
+        transform: translate(0, 0);
+    }
+
+    20% {
+        transform: translate(2px, 2px);
+    }
+
+    40% {
+        transform: translate(5px, -2px);
+    }
+
+    60% {
+        transform: translate(-2px, 1px);
+    }
+
+    80% {
+        transform: translate(1px, -2px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
 }
+
 /*finish names students and glitch*/
 
 /* Contenedor */
@@ -250,11 +318,13 @@ a.disabled {
     text-decoration: none;
 }
 
-h1, h1 a {
+h1,
+h1 a {
     font-family: 'Cinzel', serif;
     color: var(--primary-color);
     margin-bottom: 20px;
-    font-size: 2rem;   /* tamaño base PC */
+    font-size: 2rem;
+    /* tamaño base PC */
 }
 
 h1:hover {
@@ -263,68 +333,149 @@ h1:hover {
 }
 
 p {
-    font-size: 1rem;   /* tamaño base PC */
+    font-size: 1rem;
+    /* tamaño base PC */
     line-height: 1.5;
 }
 
 .exit-warning {
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2em;
-  color: var(--hover-color);
-  background: var(--background-color);
-  padding: 1em 2em;
-  border: 2px solid var(--primary-color);
-  text-shadow: 0 0 10px var(--hover-color), 0 0 20px var(--primary-color);
-  z-index: 9999;
-  animation: glitch-exit 0.15s infinite;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: var(--hover-color);
+    background: var(--background-color);
+    padding: 1em 2em;
+    border: 2px solid var(--primary-color);
+    text-shadow: 0 0 10px var(--hover-color), 0 0 20px var(--primary-color);
+    z-index: 9999;
+    animation: glitch-exit 0.15s infinite;
 }
 
 @keyframes glitch-exit {
-  0% { transform: translate(-50%, -50%) skew(0deg); }
-  20% { transform: translate(-48%, -52%) skew(2deg); }
-  40% { transform: translate(-52%, -48%) skew(-2deg); }
-  60% { transform: translate(-50%, -50%) skew(1deg); }
-  80% { transform: translate(-51%, -49%) skew(-1deg); }
-  100% { transform: translate(-50%, -50%) skew(0deg); }
+    0% {
+        transform: translate(-50%, -50%) skew(0deg);
+    }
+
+    20% {
+        transform: translate(-48%, -52%) skew(2deg);
+    }
+
+    40% {
+        transform: translate(-52%, -48%) skew(-2deg);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) skew(1deg);
+    }
+
+    80% {
+        transform: translate(-51%, -49%) skew(-1deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) skew(0deg);
+    }
 }
 
-
-
-.flexbox-container {
-    display: flex;
-    align-items: stretch;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 25px;
-
+#countdown-box {
+    border: 2px solid #800000;
+    padding: 20px 40px;
+    border-radius: 10px;
+    text-align: center;
+    background: linear-gradient(145deg, #1a1a1a, #000000);
+    box-shadow: 0 0 25px #5c0000;
 }
 
-.box {
-    border: 1px solid var(--primary-color);
-    padding: 15px;
+#countdown-title {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: #b30000;
+    text-shadow: 0 0 8px #ff0000;
+}
+
+#countdown {
+    font-size: 1.4em;
+    letter-spacing: 2px;
+    color: #fff;
+    font-family: "Courier New", monospace;
+    text-shadow: 0 0 5px #ff1a1a, 0 0 10px #660000;
+}
+
+.tasks-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.task {
     background: var(--container-bg);
-    width: 200px;
-    box-sizing: border-box;
+    border: 1px solid var(--primary-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    color: var(--text-color);
+    box-shadow: 0 0 15px rgba(102, 0, 0, 0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
+
+.task:hover {
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 0 0 25px var(--hover-color);
+}
+
+.task h3 {
+    font-family: "Cinzel", serif;
+    color: var(--hover-color);
+    margin-bottom: 0.5rem;
+}
+
+.task p {
+    font-family: "Merriweather", serif;
+    font-size: 0.95rem;
+}
+
 
 @media (max-width: 480px) {
-    h1 { font-size: 3rem; }
-    p { font-size: 1.5rem; }
-    a { font-size: 1.5rem; }
+    h1 {
+        font-size: 3rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    a {
+        font-size: 1.5rem;
+    }
 }
+
 @media (min-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    p { font-size: 1.3rem; }
-    a { font-size: 1.3rem; }
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 1.3rem;
+    }
+
+    a {
+        font-size: 1.3rem;
+    }
 }
+
 /* Pantallas grandes */
 @media (min-width: 1024px) {
-    h1 { font-size: 2rem; }
-    p { font-size: 1rem; }
-    a { font-size: 1rem; }
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    a {
+        font-size: 1rem;
+    }
 }
