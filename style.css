@@ -92,7 +92,7 @@ body {
 }
 
 .dust {
-    position: absolute;
+    position: fixed;
     bottom: -10px;
     /* salen un poquito más abajo */
     width: 4px;
@@ -382,7 +382,6 @@ p {
 #countdown-box {
     border: 2px solid #800000;
     padding: 20px 40px;
-    border-radius: 10px;
     text-align: center;
     background: linear-gradient(145deg, #1a1a1a, #000000);
     box-shadow: 0 0 25px #5c0000;
@@ -414,15 +413,14 @@ p {
     background: var(--container-bg);
     border: 1px solid var(--primary-color);
     padding: 1.5rem;
-    border-radius: 8px;
     color: var(--text-color);
     box-shadow: 0 0 15px rgba(102, 0, 0, 0.6);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .task:hover {
-    transform: scale(1.05) rotate(-1deg);
-    box-shadow: 0 0 25px var(--hover-color);
+    transform: scale(1.01);
+    box-shadow: 0 0 5px var(--hover-color);
 }
 
 .task h3 {
