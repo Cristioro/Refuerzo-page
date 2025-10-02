@@ -26,6 +26,14 @@ body {
     padding: 15px;
 }
 
+.task-list {
+    list-style-type: decimal;
+    margin-left: 20px;
+    padding-left: 20px;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
 @keyframes flicker {
 
     0%,
@@ -403,6 +411,13 @@ p {
 }
 
 .tasks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
@@ -423,15 +438,41 @@ p {
     box-shadow: 0 0 5px var(--hover-color);
 }
 
-.task h3 {
-    font-family: "Cinzel", serif;
-    color: var(--hover-color);
-    margin-bottom: 0.5rem;
-}
 
 .task p {
     font-family: "Merriweather", serif;
     font-size: 0.95rem;
+}
+
+.task ul {
+    text-align: left;
+    margin-left: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    font-family: "Merriweather", serif;
+    list-style-type: disc;
+}
+
+.children {
+    margin-top: 3rem;
+}
+.children ul {
+    list-style: none;
+    padding: 0;
+}
+
+.task-title {
+    font-family: "Cinzel", serif;
+    margin-bottom: 0.5rem;
+}
+
+h3.task-title {
+    color: var(--hover-color);
+}
+
+h4.task-title {
+    color: var(--primary-color);
 }
 
 
